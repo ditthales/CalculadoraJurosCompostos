@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		472444C5291929910021C404 /* CalculadoraJurosCompostosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472444C4291929910021C404 /* CalculadoraJurosCompostosApp.swift */; };
-		472444C7291929910021C404 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472444C6291929910021C404 /* ContentView.swift */; };
+		472444C7291929910021C404 /* JurosCompostosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472444C6291929910021C404 /* JurosCompostosView.swift */; };
 		472444C9291929920021C404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 472444C8291929920021C404 /* Assets.xcassets */; };
 		472444CC291929920021C404 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 472444CB291929920021C404 /* Preview Assets.xcassets */; };
+		47671352294789BB00C6145C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47671351294789BB00C6145C /* MainView.swift */; };
+		4767135429478CD600C6145C /* JurosSimplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767135329478CD600C6145C /* JurosSimplesView.swift */; };
+		4767135629478D6100C6145C /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767135529478D6100C6145C /* HelpView.swift */; };
+		4767135829478DDA00C6145C /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767135729478DDA00C6145C /* ResultsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		472444C1291929910021C404 /* CalculadoraJurosCompostos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculadoraJurosCompostos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		472444C4291929910021C404 /* CalculadoraJurosCompostosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculadoraJurosCompostosApp.swift; sourceTree = "<group>"; };
-		472444C6291929910021C404 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		472444C6291929910021C404 /* JurosCompostosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JurosCompostosView.swift; sourceTree = "<group>"; };
 		472444C8291929920021C404 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		472444CB291929920021C404 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		47671351294789BB00C6145C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4767135329478CD600C6145C /* JurosSimplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JurosSimplesView.swift; sourceTree = "<group>"; };
+		4767135529478D6100C6145C /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		4767135729478DDA00C6145C /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,11 @@
 			isa = PBXGroup;
 			children = (
 				472444C4291929910021C404 /* CalculadoraJurosCompostosApp.swift */,
-				472444C6291929910021C404 /* ContentView.swift */,
+				472444C6291929910021C404 /* JurosCompostosView.swift */,
+				4767135329478CD600C6145C /* JurosSimplesView.swift */,
+				4767135729478DDA00C6145C /* ResultsView.swift */,
+				47671351294789BB00C6145C /* MainView.swift */,
+				4767135529478D6100C6145C /* HelpView.swift */,
 				472444C8291929920021C404 /* Assets.xcassets */,
 				472444CA291929920021C404 /* Preview Content */,
 			);
@@ -137,7 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				472444C7291929910021C404 /* ContentView.swift in Sources */,
+				4767135429478CD600C6145C /* JurosSimplesView.swift in Sources */,
+				4767135829478DDA00C6145C /* ResultsView.swift in Sources */,
+				472444C7291929910021C404 /* JurosCompostosView.swift in Sources */,
+				47671352294789BB00C6145C /* MainView.swift in Sources */,
+				4767135629478D6100C6145C /* HelpView.swift in Sources */,
 				472444C5291929910021C404 /* CalculadoraJurosCompostosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
