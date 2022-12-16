@@ -9,8 +9,9 @@ import SwiftUI
 
 struct JurosCompostosView: View {
     
-    @State private var initialValue = ""
-    @State private var mensalValue = ""
+    @State var initialValue = ""
+    @State var mensalValue = ""
+    @State var interet = ""
     @State var color = Color("placeholderColor")
     
     var body: some View {
@@ -19,14 +20,16 @@ struct JurosCompostosView: View {
                 Image("background")
                     .resizable()
                     .scaledToFill()
-                VStack(alignment: .leading){
+                VStack(alignment: .leading, spacing: 20){
                     Spacer()
                     Group{
                         Text("Valor Inicial")
                             .foregroundColor(Color("textColor"))
+                            .font(Font.custom("Helvetica Neue", size: 16)).fontWeight(.medium)
                         ZStack(alignment: .leading){
                             Text("R$ \(moneyFormatter(initialValue))")
                                 .foregroundColor(checkColor(initialValue))
+                                .font(Font.custom("Helvetica Neue", size: 20)).bold()
                             TextField("", text: $initialValue)
                                 .padding(.leading, 25.0)
                                 .foregroundColor(.clear)
@@ -37,15 +40,36 @@ struct JurosCompostosView: View {
                     Group{
                         Text("Valor Mensal")
                             .foregroundColor(Color("textColor"))
+                            .font(Font.custom("Helvetica Neue", size: 16)).fontWeight(.medium)
                         ZStack(alignment: .leading){
                             Text("R$ \(moneyFormatter(mensalValue))")
                                 .foregroundColor(checkColor(mensalValue))
+                                .font(Font.custom("Helvetica Neue", size: 20)).bold()
                             TextField("", text: $mensalValue)
                                 .padding(.leading, 25.0)
                                 .foregroundColor(.clear)
                                 .tint(.clear)
                                 .keyboardType(.numberPad)
                         }
+                    }
+                    Group{
+                        Text("Taxa de juros (%)")
+                            .foregroundColor(Color("textColor"))
+                            .font(Font.custom("Helvetica Neue", size: 16)).fontWeight(.medium)
+                        HStack{
+                            ZStack(alignment: .leading){
+                                Text("\(moneyFormatter(interet)) %")
+                                    .foregroundColor(checkColor(interet))
+                                    .font(Font.custom("Helvetica Neue", size: 20)).bold()
+                                TextField("", text: $interet)
+                                    .padding(.leading, 25.0)
+                                    .foregroundColor(.clear)
+                                    .tint(.clear)
+                                    .keyboardType(.numberPad)
+                            }
+                            
+                        }
+                        
                     }
                     Spacer()
                 }
