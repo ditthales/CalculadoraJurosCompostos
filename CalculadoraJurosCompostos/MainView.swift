@@ -12,15 +12,15 @@ struct MainView: View {
         TabView{
             JurosCompostosView()
                 .tabItem{
-                    Label("Juros Compostos", systemImage: "globe")
+                    Label("Juros Compostos", systemImage: "chart.line.uptrend.xyaxis")
                 }
             JurosSimplesView()
                 .tabItem{
-                    Label("Juros Simples", systemImage: "globe")
+                    Label("Juros Simples", systemImage: "chart.bar.fill")
                 }
             HelpView()
                 .tabItem{
-                    Label("Consulta", systemImage: "globe")
+                    Label("Consulta", systemImage: "info")
                 }
         }
     }
