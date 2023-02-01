@@ -11,6 +11,8 @@
 		472444C7291929910021C404 /* JurosCompostosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472444C6291929910021C404 /* JurosCompostosView.swift */; };
 		472444C9291929920021C404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 472444C8291929920021C404 /* Assets.xcassets */; };
 		472444CC291929920021C404 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 472444CB291929920021C404 /* Preview Assets.xcassets */; };
+		474CF0BC2965B2E600F32165 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 474CF0BB2965B2E600F32165 /* SwiftUICharts */; };
+		4750267E2981656000BBE630 /* AdaptsToKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4750267D2981656000BBE630 /* AdaptsToKeyboard.swift */; };
 		47671352294789BB00C6145C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47671351294789BB00C6145C /* MainView.swift */; };
 		4767135429478CD600C6145C /* JurosSimplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767135329478CD600C6145C /* JurosSimplesView.swift */; };
 		4767135629478D6100C6145C /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767135529478D6100C6145C /* HelpView.swift */; };
@@ -23,6 +25,7 @@
 		472444C6291929910021C404 /* JurosCompostosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JurosCompostosView.swift; sourceTree = "<group>"; };
 		472444C8291929920021C404 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		472444CB291929920021C404 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4750267D2981656000BBE630 /* AdaptsToKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToKeyboard.swift; sourceTree = "<group>"; };
 		47671351294789BB00C6145C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4767135329478CD600C6145C /* JurosSimplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JurosSimplesView.swift; sourceTree = "<group>"; };
 		4767135529478D6100C6145C /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				474CF0BC2965B2E600F32165 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +65,7 @@
 			children = (
 				472444C4291929910021C404 /* CalculadoraJurosCompostosApp.swift */,
 				472444C6291929910021C404 /* JurosCompostosView.swift */,
+				4750267D2981656000BBE630 /* AdaptsToKeyboard.swift */,
 				4767135329478CD600C6145C /* JurosSimplesView.swift */,
 				4767135729478DDA00C6145C /* ResultsView.swift */,
 				47671351294789BB00C6145C /* MainView.swift */,
@@ -95,6 +100,9 @@
 			dependencies = (
 			);
 			name = CalculadoraJurosCompostos;
+			packageProductDependencies = (
+				474CF0BB2965B2E600F32165 /* SwiftUICharts */,
+			);
 			productName = CalculadoraJurosCompostos;
 			productReference = 472444C1291929910021C404 /* CalculadoraJurosCompostos.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 472444B8291929910021C404;
+			packageReferences = (
+				474CF0BA2965B2E600F32165 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 472444C2291929910021C404 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -150,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4767135429478CD600C6145C /* JurosSimplesView.swift in Sources */,
+				4750267E2981656000BBE630 /* AdaptsToKeyboard.swift in Sources */,
 				4767135829478DDA00C6145C /* ResultsView.swift in Sources */,
 				472444C7291929910021C404 /* JurosCompostosView.swift in Sources */,
 				47671352294789BB00C6145C /* MainView.swift in Sources */,
@@ -355,6 +367,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		474CF0BA2965B2E600F32165 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		474CF0BB2965B2E600F32165 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 474CF0BA2965B2E600F32165 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 472444B9291929910021C404 /* Project object */;
 }

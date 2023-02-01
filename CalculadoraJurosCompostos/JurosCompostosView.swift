@@ -9,6 +9,8 @@ import SwiftUI
 
 struct JurosCompostosView: View {
     
+    @State private var willMoveToNextScreen = false
+    
     @State var initialValue = ""
     @State var mensalValue = ""
     @State var interet = ""
@@ -16,6 +18,10 @@ struct JurosCompostosView: View {
     @State var labelJurosDropdown = "mensal"
     @State var labelTempoDropdown = "meses"
     @State var color = Color("placeholderColor")
+    
+    @State var arrayResults: [Double] = []
+    @State var arrayTotalInvestido: [Double] = []
+    @State var arrayTotalJuros: [Double] = []
     
     var body: some View {
         GeometryReader{ geo in
@@ -32,7 +38,7 @@ struct JurosCompostosView: View {
                                 .font(Font.custom("Helvetica Neue", size: 16)).fontWeight(.medium)
                             ZStack(alignment: .leading){
                                 Text("R$ \(moneyFormatter(initialValue))")
-                                    .foregroundColor(checkColor(initialValue))
+                                    .foregroundColor(checkColorValues(initialValue))
                                     .font(Font.custom("Helvetica Neue", size: 20)).bold()
                                 TextField("", text: $initialValue)
                                     .foregroundColor(.clear)
@@ -40,13 +46,14 @@ struct JurosCompostosView: View {
                                     .keyboardType(.numberPad)
                             }
                         }
+                        
                         Group{
                             Text("Valor Mensal")
                                 .foregroundColor(Color("textColor"))
                                 .font(Font.custom("Helvetica Neue", size: 16)).fontWeight(.medium)
                             ZStack(alignment: .leading){
                                 Text("R$ \(moneyFormatter(mensalValue))")
-                                    .foregroundColor(checkColor(mensalValue))
+                                    .foregroundColor(checkColorValues(mensalValue))
                                     .font(Font.custom("Helvetica Neue", size: 20)).bold()
                                 TextField("", text: $mensalValue)
                                     .foregroundColor(.clear)
@@ -61,7 +68,7 @@ struct JurosCompostosView: View {
                             HStack{
                                 ZStack(alignment: .leading){
                                     Text("\(moneyFormatter(interet)) %")
-                                        .foregroundColor(checkColor(interet))
+                                        .foregroundColor(checkColorTaxes(interet))
                                         .font(Font.custom("Helvetica Neue", size: 20)).bold()
                                     TextField("", text: $interet)
                                         .foregroundColor(.clear)
@@ -78,7 +85,7 @@ struct JurosCompostosView: View {
                             HStack{
                                 ZStack(alignment: .leading){
                                     Text(timeFormatter(time))
-                                        .foregroundColor(checkColor(time))
+                                        .foregroundColor(checkColorTaxes(time))
                                         .font(Font.custom("Helvetica Neue", size: 20)).bold()
                                     TextField("", text: $time)
                                         .foregroundColor(.clear)
@@ -92,9 +99,9 @@ struct JurosCompostosView: View {
                             Spacer()
                         }
                         Group{
-                            HStack{
+                            HStack(alignment: .center){
                                 Button{
-                                    //MARK: Configurar aqui botao limpar
+                                    limparForm()
                                 }label: {
                                     ZStack{
                                         Image("SecondaryButtonBG")
@@ -113,6 +120,12 @@ struct JurosCompostosView: View {
                                 }
                                 Button{
                                     //MARK: Configurar aqui botão calcular
+                                    if !(initialValue.isEmpty || mensalValue.isEmpty || interet.isEmpty || time.isEmpty) {
+                                        calcular()
+                                        willMoveToNextScreen.toggle()
+                                    }
+                                    
+                                  
                                 }label: {
                                     ZStack{
                                         Image("PrimaryButtonBG")
@@ -136,17 +149,109 @@ struct JurosCompostosView: View {
                             Spacer()
                         }
                     }
-                    .frame(width: 330, height: 332, alignment: .bottom)
+                    .padding(20)
+                    
                 }
-                .padding(.top, geo.size.height/4)
+                .padding(.top, geo.size.height/5)
                 
             }
             .edgesIgnoringSafeArea(.all)
+            .onTapGesture {
+                self.hideKeyboard()
+            }
+            .sheet(isPresented: $willMoveToNextScreen, onDismiss: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    limparDados()
+                }
+            }){
+//                ResultsView(arrayResults: $arrayResults, arrayTotalInvestido: $arrayTotalInvestido, arrayTotalJuros: $arrayTotalJuros)
+                ResultsView(arrayResults: $arrayResults, arrayTotalInvestido: $arrayTotalInvestido, arrayTotalJuros: $arrayTotalJuros, isPresented: $willMoveToNextScreen)
+            }
         }
     }
     
-    func checkColor(_ thingToCheck: String) -> Color{
+    func calcular(){
+        
+        if isFormOkay(){
+            let cInitValue: Double = (Double(initialValue) ?? 0)/100
+            let cMensalValue: Double = (Double(mensalValue) ?? 0)/100
+            
+            var cTime: Int
+            if labelTempoDropdown == "meses"{
+                cTime = (Int(time) ?? 0)
+            }else{
+                cTime = (Int(time) ?? 0) * 12
+            }
+            
+            var cInteret: Double
+            if labelJurosDropdown == "mensal"{
+                cInteret = (Double(interet) ?? 0)/10000
+            }else{
+                let juros = (Double(interet) ?? 0)/10000
+                cInteret = ((pow((1+juros), (1/12)))-1)
+                print("o interet anual foi: \(cInteret)")
+            }
+            
+            let improvedInteret = cInteret + 1
+            print("o improved interet ficou de \(improvedInteret)")
+            
+            var result = cInitValue
+            
+            for _ in 0...(cTime-1) {
+                result = result * improvedInteret
+                result = result + cMensalValue
+                arrayResults.append(result)
+            }
+            
+            for i in 0...(cTime-1) {
+                let totalInvestido = cInitValue + cMensalValue * Double((i+1))
+                arrayTotalInvestido.append(totalInvestido)
+            }
+            
+            for i in 0...(cTime-1) {
+                let totalEmJuros = arrayResults[i] - arrayTotalInvestido[i]
+                arrayTotalJuros.append(totalEmJuros)
+            }
+        }
+        
+    }
+    
+    func isFormOkay() -> Bool{
+        if initialValue != "" || mensalValue != "" {
+            if interet != "" && interet != "0" && time != "" && time != "0"{
+                return true
+            }else{
+                return false
+            }
+        }else{
+            return false
+        }
+    }
+    
+    func limparForm(){
+        initialValue = ""
+        mensalValue = ""
+        interet = ""
+        time = ""
+    }
+    
+    func limparDados(){
+       
+        arrayResults = []
+        arrayTotalJuros = []
+        arrayTotalInvestido = []
+    }
+    
+    func checkColorTaxes(_ thingToCheck: String) -> Color{
         if thingToCheck == "" || thingToCheck == "0" {
+            return Color("placeholderColor")
+        }else{
+            return Color("textColor")
+        }
+    }
+    
+    func checkColorValues(_ thingToCheck: String) -> Color{
+        if thingToCheck == ""{
             return Color("placeholderColor")
         }else{
             return Color("textColor")
@@ -246,6 +351,32 @@ struct DropDownTempo: View{
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         JurosCompostosView()
+    }
+}
+
+extension View {
+    /// Navigate to a new view.
+    /// - Parameters:
+    ///   - view: View to navigate to.
+    ///   - binding: Only navigates when this condition is `true`.
+    func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
+        NavigationView {
+            ZStack {
+                self
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+
+                NavigationLink(
+                    destination: view
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true),
+                    isActive: binding
+                ) {
+                    EmptyView()
+                }
+            }
+        }
+        .navigationViewStyle(.columns)
     }
 }
 
