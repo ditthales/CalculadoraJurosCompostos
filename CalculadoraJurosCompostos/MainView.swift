@@ -18,7 +18,7 @@ struct MainView: View {
                 .tabItem{
                     Label("Juros Simples", systemImage: "chart.bar.fill")
                 }
-            HelpView()
+            HelpView(inpc: "Carregando...", ipca: "Carregando...", selic: "Carregando...")
                 .tabItem{
                     Label("Consulta", systemImage: "info")
                 }

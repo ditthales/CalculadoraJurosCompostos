@@ -8,28 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		472444C5291929910021C404 /* CalculadoraJurosCompostosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472444C4291929910021C404 /* CalculadoraJurosCompostosApp.swift */; };
-		472444C7291929910021C404 /* JurosCompostosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472444C6291929910021C404 /* JurosCompostosView.swift */; };
 		472444C9291929920021C404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 472444C8291929920021C404 /* Assets.xcassets */; };
 		472444CC291929920021C404 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 472444CB291929920021C404 /* Preview Assets.xcassets */; };
 		474CF0BC2965B2E600F32165 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 474CF0BB2965B2E600F32165 /* SwiftUICharts */; };
-		4750267E2981656000BBE630 /* AdaptsToKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4750267D2981656000BBE630 /* AdaptsToKeyboard.swift */; };
 		47671352294789BB00C6145C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47671351294789BB00C6145C /* MainView.swift */; };
 		4767135429478CD600C6145C /* JurosSimplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767135329478CD600C6145C /* JurosSimplesView.swift */; };
 		4767135629478D6100C6145C /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767135529478D6100C6145C /* HelpView.swift */; };
 		4767135829478DDA00C6145C /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767135729478DDA00C6145C /* ResultsView.swift */; };
+		47895CA3299E606B00D86B3F /* Selic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47895CA2299E606B00D86B3F /* Selic.swift */; };
+		47895CA6299E619500D86B3F /* INPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47895CA5299E619500D86B3F /* INPC.swift */; };
+		47895CA8299E619F00D86B3F /* IPCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47895CA7299E619F00D86B3F /* IPCA.swift */; };
+		47895CAA299E624500D86B3F /* Selic+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47895CA9299E624500D86B3F /* Selic+API.swift */; };
+		47895CAC299E624F00D86B3F /* INPC+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47895CAB299E624F00D86B3F /* INPC+API.swift */; };
+		47895CAE299E625800D86B3F /* IPCA+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47895CAD299E625800D86B3F /* IPCA+API.swift */; };
+		47D0FB2F299CFAED00C771AD /* JurosCompostosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D0FB2E299CFAED00C771AD /* JurosCompostosView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		472444C1291929910021C404 /* CalculadoraJurosCompostos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculadoraJurosCompostos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		472444C4291929910021C404 /* CalculadoraJurosCompostosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculadoraJurosCompostosApp.swift; sourceTree = "<group>"; };
-		472444C6291929910021C404 /* JurosCompostosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JurosCompostosView.swift; sourceTree = "<group>"; };
 		472444C8291929920021C404 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		472444CB291929920021C404 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4750267D2981656000BBE630 /* AdaptsToKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToKeyboard.swift; sourceTree = "<group>"; };
 		47671351294789BB00C6145C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4767135329478CD600C6145C /* JurosSimplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JurosSimplesView.swift; sourceTree = "<group>"; };
 		4767135529478D6100C6145C /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		4767135729478DDA00C6145C /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		47895CA2299E606B00D86B3F /* Selic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selic.swift; sourceTree = "<group>"; };
+		47895CA5299E619500D86B3F /* INPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INPC.swift; sourceTree = "<group>"; };
+		47895CA7299E619F00D86B3F /* IPCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCA.swift; sourceTree = "<group>"; };
+		47895CA9299E624500D86B3F /* Selic+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Selic+API.swift"; sourceTree = "<group>"; };
+		47895CAB299E624F00D86B3F /* INPC+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "INPC+API.swift"; sourceTree = "<group>"; };
+		47895CAD299E625800D86B3F /* IPCA+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IPCA+API.swift"; sourceTree = "<group>"; };
+		47D0FB2E299CFAED00C771AD /* JurosCompostosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JurosCompostosView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +73,9 @@
 		472444C3291929910021C404 /* CalculadoraJurosCompostos */ = {
 			isa = PBXGroup;
 			children = (
+				47895CA4299E608900D86B3F /* Model */,
 				472444C4291929910021C404 /* CalculadoraJurosCompostosApp.swift */,
-				472444C6291929910021C404 /* JurosCompostosView.swift */,
-				4750267D2981656000BBE630 /* AdaptsToKeyboard.swift */,
+				47D0FB2E299CFAED00C771AD /* JurosCompostosView.swift */,
 				4767135329478CD600C6145C /* JurosSimplesView.swift */,
 				4767135729478DDA00C6145C /* ResultsView.swift */,
 				47671351294789BB00C6145C /* MainView.swift */,
@@ -82,6 +92,19 @@
 				472444CB291929920021C404 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		47895CA4299E608900D86B3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				47895CA2299E606B00D86B3F /* Selic.swift */,
+				47895CA9299E624500D86B3F /* Selic+API.swift */,
+				47895CA5299E619500D86B3F /* INPC.swift */,
+				47895CAB299E624F00D86B3F /* INPC+API.swift */,
+				47895CA7299E619F00D86B3F /* IPCA.swift */,
+				47895CAD299E625800D86B3F /* IPCA+API.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,12 +184,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4767135429478CD600C6145C /* JurosSimplesView.swift in Sources */,
-				4750267E2981656000BBE630 /* AdaptsToKeyboard.swift in Sources */,
+				47D0FB2F299CFAED00C771AD /* JurosCompostosView.swift in Sources */,
 				4767135829478DDA00C6145C /* ResultsView.swift in Sources */,
-				472444C7291929910021C404 /* JurosCompostosView.swift in Sources */,
+				47895CAC299E624F00D86B3F /* INPC+API.swift in Sources */,
 				47671352294789BB00C6145C /* MainView.swift in Sources */,
+				47895CA3299E606B00D86B3F /* Selic.swift in Sources */,
 				4767135629478D6100C6145C /* HelpView.swift in Sources */,
+				47895CAE299E625800D86B3F /* IPCA+API.swift in Sources */,
 				472444C5291929910021C404 /* CalculadoraJurosCompostosApp.swift in Sources */,
+				47895CA8299E619F00D86B3F /* IPCA.swift in Sources */,
+				47895CA6299E619500D86B3F /* INPC.swift in Sources */,
+				47895CAA299E624500D86B3F /* Selic+API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

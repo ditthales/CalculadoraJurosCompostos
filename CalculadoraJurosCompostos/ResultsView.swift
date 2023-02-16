@@ -7,6 +7,8 @@
 
 import SwiftUI
 import SwiftUICharts
+import UIKit
+
 
 struct ResultsView: View {
     
@@ -14,9 +16,9 @@ struct ResultsView: View {
     @Binding var arrayTotalInvestido: [Double]
     @Binding var arrayTotalJuros: [Double]
     
-//    @State var arrayResults: [Double] = [0]
-//    @State var arrayTotalInvestido: [Double] = [0]
-//    @State var arrayTotalJuros: [Double] = [0]
+    //    @State var arrayResults: [Double] = [0]
+    //    @State var arrayTotalInvestido: [Double] = [0]
+    //    @State var arrayTotalJuros: [Double] = [0]
     
     @Binding var isPresented: Bool
     
@@ -48,11 +50,10 @@ struct ResultsView: View {
                         GraphView(arrayResults: $arrayResults, arrayTotalInvestido: $arrayTotalInvestido, arrayTotalJuros: $arrayTotalJuros)
                     }
                     Text("*Os resultados dessa calculadora são simulações. Podendo assim, sofrer divergências causadas por mudanças nas regulamentações e taxas. Este aplicativo tem caráter informativo, sem valor legal. Portanto, não dispensa a consulta de um profissional da área.").padding(30)
+                        .frame(width: 390)
                     Group{
                         VStack{
-                            Button{
-                                
-                            }label: {
+                            ShareLink(item: getShareImage(), preview: SharePreview("Resultado", image: getShareImage())) {
                                 ZStack{
                                     Image("secondaryButtonResults")
                                     HStack{
@@ -86,6 +87,33 @@ struct ResultsView: View {
                 }.background(Color("BackgroundColor"))
             }.background(Color("BackgroundColor"))
         }.background(Color("BackgroundColor"))
+    }
+    
+    var shareView: some View {
+        VStack{
+            Spacer()
+            
+            Group{
+                Text("Resultados")
+                    .foregroundColor(Color("textColor"))
+                    .font(Font.custom("Helvetica Neue", size: 32)).fontWeight(.regular)
+                CardResult(texto: "Valor total final", valor: "R$ \(String(format: "%.2f", arrayResults.last!))", color: "textColor")
+                CardResult(texto: "Juros totais", valor: "R$ \(String(format: "%.2f", arrayTotalJuros.last!))", color: "textoJurosTotais")
+                CardResult(texto: "Valor total investido", valor: "R$ \(String(format: "%.2f", arrayTotalInvestido.last!))", color: "textoTotalInvestido")
+                
+            }.padding(10)
+            
+            Rectangle().frame(height: 2).padding(.vertical, 30)
+            
+            Text("*Os resultados dessa calculadora são simulações. Podendo assim, sofrer divergências causadas por mudanças nas regulamentações e taxas. Este aplicativo tem caráter informativo, sem valor legal. Portanto, não dispensa a consulta de um profissional da área.").padding(30)
+                .frame(width: 390)
+        }.background(.white)
+    }
+    
+    @MainActor func getShareImage() -> Image{
+        guard let image = ImageRenderer(content: shareView).uiImage else{return Image("Image")}
+        
+        return Image(uiImage: image)
     }
 }
 
